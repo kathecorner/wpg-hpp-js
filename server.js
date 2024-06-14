@@ -23,4 +23,4 @@ app.get('/authenticated-route', cors(corsOptions), (req, res) => {
 
 app.use(express.static("./public"));
 
-app.listen(PORT, () => console.info(`server is running at Port ${PORT}`));
+app.listen(PORT, () => console.info(`server is running at Port 3000`));
