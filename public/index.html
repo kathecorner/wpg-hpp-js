@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title> My test page </title>
+      <script src='https://payments.worldpay.com/resources/hpp/integrations/embedded/js/hpp-embedded-integration-library.js'></script>
+      
+   </head>
+   <body onload="window.globalFunction.postXml()">
+      <div>This is my test page as a merchant</div>
+      <div id='custom-html'></div>
+      <p id="xmlResult"></p>
+      <a href='#' id='custom-trigger'>Checkout</a>
+      <script src="./src/checkout.js"></script>
+      <script type="text/javascript">         
+         //your options
+         var customOptions = {
+         url: 'https://payments-test.worldpay.com/app/hpp/integration/wpg/corporate?OrderKey=DEMO^kenjijsxml3365133657&amp;Ticket=00171878344317402_F_FY21Qqf-bdRROy1NNOwwKt3m4hbuekWajeK&amp;source=https%3A%2F%2Fsecure-test.worldpay.com',
+         type: 'lightbox',
+         trigger: 'custom-trigger',
+         lightboxMaskOpacity: 80,
+         lightboxMaskColor: '#000000',
+         target: "custom-html",
+         accessibility: true,
+         debug: false,
+         language: 'en',
+         country: 'gb',
+         preferredPaymentMethod: 'VISA-SSL',
+         successURL: 'http://127.0.0.1:3000/success.html',
+         cancelURL: 'https://payments-test.worldpay.com/cancel',
+         failureURL: 'https://payments-test.worldpay.com/failure',
+         pendingURL: 'https://payments-test.worldpay.com/pending',
+         errorURL: 'https://payments-test.worldpay.com/error'
+         };
+         //initialise the library and pass options
+         var libraryObject = new WPCL.Library();
+         console.log(customOptions.url)
+         libraryObject.setup(customOptions);
+
+
+         function changeColors() {
+            document.getElementById("custom-trigger").style.backgroundColor = "#00FF00";
+            //document.getElementById("custom-html")=libraryObject.url;
+            console.log("this is in index.html");
+            
+         }
+
+         function onClickHandleA () {
+            window.location.replace(customOptions.url);
+  }
+
+
+  
+
+      </script>
+   </body>
+</html>

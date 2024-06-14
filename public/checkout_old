@@ -1,0 +1,31 @@
+const customHtml = document.querySelector("#custom-html");
+
+console.log("the DOM is taken at " + customHtml.attributes);
+
+const says = (req,res, e) => {
+    console.log("say was called");
+}
+
+function changeColor() {
+    customHtml.style.backgroundColor = "green";
+    console.log("is this called?")
+
+      //xml request
+  
+      const xml = new XMLHttpRequest();
+      const xmlResponse = document.querySelector("#xmlResult");
+  
+      xml.addEventListener("load", (e) => {
+        const text = e.target.responseText;
+        console.log(text);
+        xmlResult.innerHTML = text;
+  
+      })
+      
+      xml.open("post", "https://secure-test.worldpay.com/jsp/merchant/xml/paymentService.jsp.xml",true);
+      xml.setRequestHeader("Content-Type: text/xml","X-Requested-With : XMLHttpRequest", "Access-Control-Allow-Origin : *");
+      xml.send("./request.xml");
+      console.log();
+    
+  }
+

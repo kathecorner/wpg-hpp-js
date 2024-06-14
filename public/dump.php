@@ -1,0 +1,1 @@
+https://secure-test.worldpay.com/jsp/merchant/xml/paymentService.jsp
